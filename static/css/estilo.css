@@ -1,0 +1,215 @@
+/* Estilo para el título principal */
+.titulo {
+    font-size: 5rem; /* Aumentamos el tamaño del título principal */
+    color: #000000; /* Cambiamos el color del texto a negro */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Añadimos sombra al texto para mejor legibilidad */
+}
+
+/* Estilo para la opción de búsqueda */
+.opcion-busqueda {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem; /* Tamaño del texto para la opción de búsqueda */
+    padding: 10px;
+    margin-top: 20px; /* Espacio superior */
+    background-color: #000000; /* Color de fondo */
+    color: #ffffff; /* Color del texto */
+    text-decoration: none; /* Quitamos subrayado del enlace */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra */
+    transition: background-color 0.3s; /* Transición de color de fondo */
+}
+
+.opcion-busqueda:hover {
+    background-color: #d32f2f; /* Cambio de color de fondo al pasar el cursor */
+}
+
+/* Aquí puedes continuar agregando más estilos si es necesario */
+
+
+/* General Styles */
+
+body {
+    color: #000000; /* Color de texto principal en negro */
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    background-image: url("{{ url_for('static', filename='images/cine.png') }}"); /* Imagen de fondo */
+    background-size: contain; /* Cambia a contain para que la imagen se ajuste dentro del contenedor */
+    background-position: center center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    background-attachment: fixed; /* Fija la imagen al fondo */
+    background-color: #121212; /* Color de fondo para áreas que no cubre la imagen */
+}
+
+header {
+    background-color: transparent;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.logotipo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    color: #e74c3c; /* Rojo brillante */
+    margin: 0;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #e74c3c; /* Rojo brillante */
+    text-decoration: none;
+    font-size: 1.2rem;
+    margin: 0 15px;
+}
+
+nav a.activo {
+    text-decoration: underline;
+}
+
+nav a,
+.titulo {
+    color: #000000; /* Color de texto en negro */
+}
+
+/* Grid de Imágenes */
+.imagenes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.imagenes-grid img {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+}
+
+/* Centered Content */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 900px;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.contenido-principal {
+    margin-top: 50px;
+    padding: 40px;
+    background-color: rgba(44, 62, 80, 0.8); /* Azul oscuro translúcido */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Movie Detail Styles */
+.pelicula-detalle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background-color: rgba(44, 62, 80, 0.9); /* Azul oscuro translúcido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.pelicula-detalle img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.pelicula-detalle h2 {
+    font-size: 2rem;
+    margin: 20px 0 10px;
+    color: #e74c3c; /* Rojo brillante */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pelicula-detalle p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin-bottom: 10px;
+    color: #000000; /* Color de texto negro */
+}
+
+/* Additional styling for titles and sections */
+h1, h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #e74c3c; /* Rojo brillante */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    margin-top: 40px;
+}
+
+.titulo {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #000000; /* Color de texto negro */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Form Styles */
+.formulario-busqueda {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.input-busqueda {
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 400px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff; /* Fondo blanco para contraste */
+    color: #000000; /* Texto negro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.boton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #e74c3c; /* Rojo brillante */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.boton:hover {
+    background-color: #c0392b; /* Rojo más oscuro */
+}
+
+/* Allow scrolling */
+body {
+    height: 100%;
+    overflow-y: auto;
+}

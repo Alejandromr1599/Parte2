@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Detalles del Actor</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/cine.png') }}"); /* Ruta a tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Fija la imagen de fondo */
+            color: #000000; /* Color de texto en negro */
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo">MovieDB</h2>
+            <nav>
+                <!-- Navegación -->
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contenedor">
+            <div class="contenido-principal">
+                <h1>Detalles del Actor</h1>
+                {% if actor %}
+                    <div class="actor-detalle">
+                        <h2>{{ actor.name }}</h2>
+                        <img src="https://image.tmdb.org/t/p/w500{{ actor.profile_path }}" alt="{{ actor.name }}">
+                        <p>Fecha de Nacimiento: {{ actor.birthday }}</p>
+                        <p>Biografía: {{ actor.biography }}</p>
+                        <p>Filmografía:</p>
+                        <ul>
+                            {% for movie in actor.known_for %}
+                                <li>{{ movie.title }} ({{ movie.release_date }})</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="imagenes-grid">
+                        {% for pelicula in actor.known_for %}
+                            <div class="pelicula-item">
+                                <a href="{{ url_for('detalle_pelicula', id=pelicula.id) }}">
+                                    <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}" alt="{{ pelicula.title }} Poster">
+                                    <h2>{{ pelicula.title }}</h2>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>No se encontraron detalles del actor.</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>

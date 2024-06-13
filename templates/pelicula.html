@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Detalles de la Película</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/cine.png') }}"); /* Ruta a tu imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Fija la imagen de fondo */
+            color: #000000; /* Color de texto en negro */
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="contenedor">
+            <h2 class="logotipo">MovieDB</h2>
+            <nav>
+                <!-- Navegación -->
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contenedor">
+            <div class="contenido-principal">
+                <h1>Detalles de la Película</h1>
+                {% if pelicula %}
+                    <div class="pelicula-detalle">
+                        <h2>{{ pelicula.title }}</h2>
+                        <img src="https://image.tmdb.org/t/p/w500{{ pelicula.poster_path }}" alt="{{ pelicula.title }} Poster">
+                        <p>{{ pelicula.overview }}</p>
+                    </div>
+                    {% if pelicula.trailer %}
+                        <div class="video-container">
+                            <iframe width="560" height="315" src="{{ pelicula.trailer }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <p>No se encontraron detalles de la película.</p>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+</body>
+</html>
